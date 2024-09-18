@@ -58,8 +58,11 @@ while run:
 
   screen.fill((255,255,255))
   if upgradebutton.draw(screen):
-    tier += 1
-    print(f"Upgraded! Your building is now a tier {tier} building!")
+    if tier <= 2:
+      tier += 1
+      print(f"Upgraded! Your building is now a tier {tier} building!")
+    else:
+      print(f"Sorry! You reached the max tier for this building: Tier {tier}")
   tiercheck(tier)
   
   for event in pygame.event.get():
